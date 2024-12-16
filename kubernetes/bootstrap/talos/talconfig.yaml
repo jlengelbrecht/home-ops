@@ -1,0 +1,217 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/budimanjojo/talhelper/master/pkg/config/schemas/talconfig.json
+---
+# renovate: datasource=docker depName=ghcr.io/siderolabs/installer
+talosVersion: v1.8.4
+# renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
+kubernetesVersion: v1.31.3
+
+clusterName: "proxmox-kubernetes"
+endpoint: https://10.20.67.25:6443
+
+clusterPodNets:
+  - "10.69.0.0/16"
+clusterSvcNets:
+  - "10.96.0.0/16"
+
+additionalApiServerCertSans: &sans
+  - "10.20.67.25"
+  - "127.0.0.1"
+additionalMachineCertSans: *sans
+
+# Disable built-in Flannel to use Cilium
+cniConfig:
+  name: none
+
+nodes:
+  - hostname: "master-1"
+    ipAddress: "10.20.67.1"
+    installDisk: "/dev/sda"
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
+    controlPlane: true
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "62:c1:e1:16:51:a6"
+        dhcp: false
+        addresses:
+          - "10.20.67.1/23"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "10.20.66.1"
+        mtu: 1500
+        vip:
+          ip: "10.20.67.25"
+  - hostname: "master-2"
+    ipAddress: "10.20.67.2"
+    installDisk: "/dev/sda"
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
+    controlPlane: true
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "aa:54:cd:f6:a1:d0"
+        dhcp: false
+        addresses:
+          - "10.20.67.2/23"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "10.20.66.1"
+        mtu: 1500
+        vip:
+          ip: "10.20.67.25"
+  - hostname: "master-3"
+    ipAddress: "10.20.67.3"
+    installDisk: "/dev/sda"
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
+    controlPlane: true
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "be:9c:fd:2c:54:85"
+        dhcp: false
+        addresses:
+          - "10.20.67.3/23"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "10.20.66.1"
+        mtu: 1500
+        vip:
+          ip: "10.20.67.25"
+  - hostname: "worker-1"
+    ipAddress: "10.20.67.4"
+    installDisk: "/dev/sda"
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
+    controlPlane: false
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "b2:dc:2e:72:8c:ec"
+        dhcp: false
+        addresses:
+          - "10.20.67.4/23"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "10.20.66.1"
+        mtu: 1500
+  - hostname: "worker-2"
+    ipAddress: "10.20.67.5"
+    installDisk: "/dev/sda"
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
+    controlPlane: false
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "06:64:c3:76:9a:98"
+        dhcp: false
+        addresses:
+          - "10.20.67.5/23"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "10.20.66.1"
+        mtu: 1500
+  - hostname: "gpu-worker-1"
+    ipAddress: "10.20.67.6"
+    installDisk: "/dev/sda"
+    talosImageURL: factory.talos.dev/installer/26124abcbd408be693df9fe852c80ef1e6cc178e34d7d7d8430a28d1130b4227
+    controlPlane: false
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "36:30:ad:44:40:cd"
+        dhcp: false
+        addresses:
+          - "10.20.67.6/23"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "10.20.66.1"
+        mtu: 1500
+  - hostname: "worker-3"
+    ipAddress: "10.20.67.7"
+    installDisk: "/dev/sda"
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
+    controlPlane: false
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "de:d2:51:d7:24:c6"
+        dhcp: false
+        addresses:
+          - "10.20.67.7/23"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "10.20.66.1"
+        mtu: 1500
+  - hostname: "gpu-worker-2"
+    ipAddress: "10.20.67.8"
+    installDisk: "/dev/sda"
+    talosImageURL: factory.talos.dev/installer/26124abcbd408be693df9fe852c80ef1e6cc178e34d7d7d8430a28d1130b4227
+    controlPlane: false
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "22:d1:14:e2:ee:49"
+        dhcp: false
+        addresses:
+          - "10.20.67.8/23"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "10.20.66.1"
+        mtu: 1500
+  - hostname: "worker-4"
+    ipAddress: "10.20.67.9"
+    installDisk: "/dev/sda"
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
+    controlPlane: false
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "1e:85:7b:70:92:93"
+        dhcp: false
+        addresses:
+          - "10.20.67.9/23"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "10.20.66.1"
+        mtu: 1500
+  - hostname: "worker-5"
+    ipAddress: "10.20.67.10"
+    installDisk: "/dev/sda"
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
+    controlPlane: false
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "bc:24:11:e7:ef:7f"
+        dhcp: false
+        addresses:
+          - "10.20.67.10/23"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "10.20.66.1"
+        mtu: 1500
+  - hostname: "worker-6"
+    ipAddress: "10.20.67.11"
+    installDisk: "/dev/sda"
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
+    controlPlane: false
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "0e:eb:7c:a2:2e:cc"
+        dhcp: false
+        addresses:
+          - "10.20.67.11/23"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "10.20.66.1"
+        mtu: 1500
+
+# Global patches
+patches:
+  - "@./patches/global/cluster-discovery.yaml"
+  - "@./patches/global/containerd.yaml"
+  - "@./patches/global/disable-search-domain.yaml"
+  - "@./patches/global/dns.yaml"
+  - "@./patches/global/hostdns.yaml"
+  - "@./patches/global/kubelet.yaml"
+  - "@./patches/global/ntp.yaml"
+  - "@./patches/global/openebs-local.yaml"
+  - "@./patches/global/sysctl.yaml"
+
+# Controller patches
+controlPlane:
+  patches:
+    - "@./patches/controller/api-access.yaml"
+    - "@./patches/controller/cluster.yaml"
+    - "@./patches/controller/disable-admission-controller.yaml"
+    - "@./patches/controller/etcd.yaml"
+
