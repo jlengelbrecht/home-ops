@@ -119,6 +119,26 @@ nodes:
           - network: 0.0.0.0/0
             gateway: "10.20.66.1"
         mtu: 1500
+    extraManifests:
+      - ./nvidia-runtime-class.yaml
+    extensionServices:
+      - name: nvidia-container-runtime
+        configFiles:
+          - content: |-
+              
+            mountPath: 
+      - name: gpu-settings
+        configFiles:
+          - content: |-
+              machine:
+                kernel:
+                  modules:
+                    - name: nvidia
+                    - name: nvidia_uvm
+                    - name: nvidia_drm
+                    - name: nvidia_modeset
+
+            mountPath: 
   - hostname: "worker-3"
     ipAddress: "10.20.67.7"
     installDisk: "/dev/sda"
@@ -149,6 +169,26 @@ nodes:
           - network: 0.0.0.0/0
             gateway: "10.20.66.1"
         mtu: 1500
+    extraManifests:
+      - ./nvidia-runtime-class.yaml
+    extensionServices:
+      - name: nvidia-container-runtime
+        configFiles:
+          - content: |-
+              
+            mountPath: 
+      - name: gpu-settings
+        configFiles:
+          - content: |-
+              machine:
+                kernel:
+                  modules:
+                    - name: nvidia
+                    - name: nvidia_uvm
+                    - name: nvidia_drm
+                    - name: nvidia_modeset
+
+            mountPath: 
   - hostname: "worker-4"
     ipAddress: "10.20.67.9"
     installDisk: "/dev/sda"
