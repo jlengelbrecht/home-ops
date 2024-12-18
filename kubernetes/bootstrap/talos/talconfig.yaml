@@ -107,7 +107,7 @@ nodes:
   - hostname: "gpu-worker-1"
     ipAddress: "10.20.67.6"
     installDisk: "/dev/sda"
-    talosImageURL: factory.talos.dev/installer/26124abcbd408be693df9fe852c80ef1e6cc178e34d7d7d8430a28d1130b4227
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
     controlPlane: false
     networkInterfaces:
       - deviceSelector:
@@ -119,26 +119,6 @@ nodes:
           - network: 0.0.0.0/0
             gateway: "10.20.66.1"
         mtu: 1500
-    extraManifests:
-      - ./nvidia-runtime-class.yaml
-    extensionServices:
-      - name: nvidia-container-runtime
-        configFiles:
-          - content: |-
-              
-            mountPath: 
-      - name: gpu-settings
-        configFiles:
-          - content: |-
-              machine:
-                kernel:
-                  modules:
-                    - name: nvidia
-                    - name: nvidia_uvm
-                    - name: nvidia_drm
-                    - name: nvidia_modeset
-
-            mountPath: 
   - hostname: "worker-3"
     ipAddress: "10.20.67.7"
     installDisk: "/dev/sda"
@@ -157,7 +137,7 @@ nodes:
   - hostname: "gpu-worker-2"
     ipAddress: "10.20.67.8"
     installDisk: "/dev/sda"
-    talosImageURL: factory.talos.dev/installer/26124abcbd408be693df9fe852c80ef1e6cc178e34d7d7d8430a28d1130b4227
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
     controlPlane: false
     networkInterfaces:
       - deviceSelector:
@@ -169,26 +149,6 @@ nodes:
           - network: 0.0.0.0/0
             gateway: "10.20.66.1"
         mtu: 1500
-    extraManifests:
-      - ./nvidia-runtime-class.yaml
-    extensionServices:
-      - name: nvidia-container-runtime
-        configFiles:
-          - content: |-
-              
-            mountPath: 
-      - name: gpu-settings
-        configFiles:
-          - content: |-
-              machine:
-                kernel:
-                  modules:
-                    - name: nvidia
-                    - name: nvidia_uvm
-                    - name: nvidia_drm
-                    - name: nvidia_modeset
-
-            mountPath: 
   - hostname: "worker-4"
     ipAddress: "10.20.67.9"
     installDisk: "/dev/sda"
