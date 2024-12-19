@@ -1,5 +1,4 @@
 ---
-
 #
 # 1. (REQUIRED) Cluster details - Cluster represents the Kubernetes cluster layer and any additional customizations
 #
@@ -15,25 +14,26 @@ bootstrap_node_network: ""
 
 # (REQUIRED) Use only 1, 3 or more ODD number of controller nodes, recommended is 3
 #   Worker nodes are optional
-bootstrap_node_inventory: []
-    # - name: ""            # (REQUIRED) Name of the node (must match [a-z0-9-\]+)
-    #   address: ""         # (REQUIRED) IP address of the node
-    #   controller: true    # (REQUIRED) Set to true if this is a controller node
-    #   disk: ""            # (REQUIRED) Device path or serial number of the disk for this node (talosctl disks -n <ip> --insecure)
-    #   mac_addr: ""        # (REQUIRED) MAC address of the NIC for this node (talosctl get links -n <ip> --insecure)
-    #   schematic_id: ""    # (OPTIONAL) Override the 'bootstrap_schematic_id' with a node specific schematic ID from https://factory.talos.dev/
-    #   mtu: ""             # (OPTIONAL) MTU for the NIC. DEFAULT: 1500
-    #   manifests:          # (OPTIONAL) Additional manifests to include after MachineConfig
-    #     - extra.yaml      #            Ref: https://www.talos.dev/v1.7/reference/configuration/extensions/extensionserviceconfig/
-    #   extension_services: # (OPTIONAL) Additional talhelper ExtensionServices (supports talenv.sops.yaml envsubst)
-    #     - name: name
-    #       configFiles:
-    #         - content: |-
-    #             ...
-    #       mountPath: ...
-    #       environment:
-    #         - key=value
-    # ...
+bootstrap_node_inventory:
+  []
+  # - name: ""            # (REQUIRED) Name of the node (must match [a-z0-9-\]+)
+  #   address: ""         # (REQUIRED) IP address of the node
+  #   controller: true    # (REQUIRED) Set to true if this is a controller node
+  #   disk: ""            # (REQUIRED) Device path or serial number of the disk for this node (talosctl disks -n <ip> --insecure)
+  #   mac_addr: ""        # (REQUIRED) MAC address of the NIC for this node (talosctl get links -n <ip> --insecure)
+  #   schematic_id: ""    # (OPTIONAL) Override the 'bootstrap_schematic_id' with a node specific schematic ID from https://factory.talos.dev/
+  #   mtu: ""             # (OPTIONAL) MTU for the NIC. DEFAULT: 1500
+  #   manifests:          # (OPTIONAL) Additional manifests to include after MachineConfig
+  #     - extra.yaml      #            Ref: https://www.talos.dev/v1.7/reference/configuration/extensions/extensionserviceconfig/
+  #   extension_services: # (OPTIONAL) Additional talhelper ExtensionServices (supports talenv.sops.yaml envsubst)
+  #     - name: name
+  #       configFiles:
+  #         - content: |-
+  #             ...
+  #       mountPath: ...
+  #       environment:
+  #         - key=value
+  # ...
 
 # (REQUIRED) The DNS servers to use for the cluster nodes.
 bootstrap_dns_servers:
@@ -91,8 +91,8 @@ bootstrap_bgp:
   peers: []
   # (REQUIRED) Set the BGP Autonomous System Number for the router(s) and nodes.
   #   If these match, iBGP will be used. If not, eBGP will be used.
-  peer_asn: ""   # Router(s) AS
-  local_asn: ""  # Node(s) AS
+  peer_asn: "" # Router(s) AS
+  local_asn: "" # Node(s) AS
   peer_port: 179 # BGP Port
   # (REQUIRED) The advertised CIDR for the cluster, this must NOT overlap with any
   #   existing networks and is usually a /16
