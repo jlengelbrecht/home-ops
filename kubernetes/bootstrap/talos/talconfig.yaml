@@ -119,6 +119,8 @@ nodes:
           - network: 0.0.0.0/0
             gateway: "10.20.66.1"
         mtu: 1500
+    patches:
+      - "@./patches/gpu-worker-1/gpu-worker-patch.yaml"
   - hostname: "worker-3"
     ipAddress: "10.20.67.7"
     installDisk: "/dev/sda"
@@ -149,6 +151,8 @@ nodes:
           - network: 0.0.0.0/0
             gateway: "10.20.66.1"
         mtu: 1500
+    patches:
+      - "@./patches/gpu-worker-2/gpu-worker-patch.yaml"
   - hostname: "worker-4"
     ipAddress: "10.20.67.9"
     installDisk: "/dev/sda"
