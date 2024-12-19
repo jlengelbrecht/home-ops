@@ -11,7 +11,6 @@
     ":skipStatusChecks",
     ":timezone(America/New_York)",
     "github>jlengelbrecht/home-ops//.github/renovate/autoMerge.json5",
-    "github>jlengelbrecht/home-ops//.github/renovate/clusters.json5",
     "github>jlengelbrecht/home-ops//.github/renovate/commitMessage.json5",
     "github>jlengelbrecht/home-ops//.github/renovate/customManagers.json5",
     "github>jlengelbrecht/home-ops//.github/renovate/grafanaDashboards.json5",
