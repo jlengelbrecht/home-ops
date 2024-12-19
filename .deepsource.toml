@@ -1,13 +1,14 @@
 version = 1
 
 [[analyzers]]
-name = "ruby"
-
-[[analyzers]]
-name = "python"
-
-  [analyzers.meta]
-  runtime_version = "3.x.x"
+name = "javascript"
 
 [[analyzers]]
 name = "shell"
+
+[[analyzers]]
+name = "kube-linter"
+type = "community"
+
+[[transformers]]
+name = "prettier"
