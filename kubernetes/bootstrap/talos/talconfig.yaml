@@ -1,9 +1,9 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/budimanjojo/talhelper/master/pkg/config/schemas/talconfig.json
 ---
 # renovate: datasource=docker depName=ghcr.io/siderolabs/installer
-talosVersion: v1.9.0
+talosVersion: v1.8.4
 # renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
-kubernetesVersion: v1.32.0
+kubernetesVersion: v1.31.3
 
 clusterName: "proxmox-kubernetes"
 endpoint: https://10.20.67.25:6443
@@ -107,7 +107,7 @@ nodes:
   - hostname: "gpu-worker-1"
     ipAddress: "10.20.67.6"
     installDisk: "/dev/sda"
-    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
+    talosImageURL: factory.talos.dev/installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515
     controlPlane: false
     networkInterfaces:
       - deviceSelector:
@@ -119,8 +119,6 @@ nodes:
           - network: 0.0.0.0/0
             gateway: "10.20.66.1"
         mtu: 1500
-    patches:
-      - "@./patches/gpu-worker-1/gpu-worker-patch.yaml"
   - hostname: "worker-3"
     ipAddress: "10.20.67.7"
     installDisk: "/dev/sda"
@@ -139,7 +137,7 @@ nodes:
   - hostname: "gpu-worker-2"
     ipAddress: "10.20.67.8"
     installDisk: "/dev/sda"
-    talosImageURL: factory.talos.dev/installer/914b38adefad3d77212f565745ed52013bf3a424e7da2730e9e7dad8ee297342
+    talosImageURL: factory.talos.dev/installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515
     controlPlane: false
     networkInterfaces:
       - deviceSelector:
@@ -151,8 +149,6 @@ nodes:
           - network: 0.0.0.0/0
             gateway: "10.20.66.1"
         mtu: 1500
-    patches:
-      - "@./patches/gpu-worker-2/gpu-worker-patch.yaml"
   - hostname: "worker-4"
     ipAddress: "10.20.67.9"
     installDisk: "/dev/sda"
@@ -218,3 +214,4 @@ controlPlane:
     - "@./patches/controller/cluster.yaml"
     - "@./patches/controller/disable-admission-controller.yaml"
     - "@./patches/controller/etcd.yaml"
+
