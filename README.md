@@ -25,26 +25,26 @@ _deployed on Talos... managed with Flux, Renovate, Deepsource, and GitHub Action
 
 ### Proxmox 🖥️
 
-| Server | CPU | RAM | Storage | Network | GPU |
-| --- | --- | --- | --- | --- | --- |
-| Dell R630 | 2x Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz | 190GB | 10TB | 2x 10G - 2 x 1G |
-| Dell R630 | 2x Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz | 190GB | 10TB | 2x 10G - 2 x 1G |
-| Dell R730XD | 2x Intel(R) Xeon(R) CPU E5-2699 v3 @ 2.30GHz | 125GB | 40TB | 2x 10G - 2 x 1G | Titan Xp |
-| Dell R730XD | 2x Intel(R) Xeon(R) CPU E5-2699 v3 @ 2.30GHz | 250GB  | 100TB | 2x 10G - 2 x 1G | RTX A2000 |
+| Server      | CPU                                          | RAM   | Storage | Network         | GPU       |
+| ----------- | -------------------------------------------- | ----- | ------- | --------------- | --------- |
+| Dell R630   | 2x Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz | 190GB | 10TB    | 2x 10G - 2 x 1G |
+| Dell R630   | 2x Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz | 190GB | 10TB    | 2x 10G - 2 x 1G |
+| Dell R730XD | 2x Intel(R) Xeon(R) CPU E5-2699 v3 @ 2.30GHz | 125GB | 40TB    | 2x 10G - 2 x 1G | Titan Xp  |
+| Dell R730XD | 2x Intel(R) Xeon(R) CPU E5-2699 v3 @ 2.30GHz | 250GB | 100TB   | 2x 10G - 2 x 1G | RTX A2000 |
 
-| Cluster | CPU | RAM | Storage | Network | Type |
-| --- | --- | --- | --- | --- | --- |
-| Master-1 | 4 | 8GB | 120GB | 10G | Control Plane |
-| Master-2 | 4 | 8GB | 120GB | 10G | Control Plane |
-| Master-3 | 4 | 8GB | 120GB | 10G | Control Plane |
-| Worker-1 | 8 | 32GB | 120GB | 10G | Worker |
-| Worker-2 | 8 | 32GB | 120GB | 10G | Worker |
-| Worker-3 | 8 | 32GB | 120GB | 10G | Worker |
-| Worker-4 | 8 | 32GB | 120GB | 10G | Worker |
-| Worker-5 | 8 | 32GB | 120GB | 10G | Worker |
-| Worker-6 | 8 | 32GB | 120GB | 10G | Worker |
-| GPU-Worker-1 | 8 | 32GB | 120GB | 10G | GPU Worker |
-| GPU-Worker-2 | 8 | 32GB | 120GB | 10G | GPU Worker |
+| Cluster      | CPU | RAM  | Storage | Network | Type          |
+| ------------ | --- | ---- | ------- | ------- | ------------- |
+| Master-1     | 4   | 8GB  | 120GB   | 10G     | Control Plane |
+| Master-2     | 4   | 8GB  | 120GB   | 10G     | Control Plane |
+| Master-3     | 4   | 8GB  | 120GB   | 10G     | Control Plane |
+| Worker-1     | 8   | 32GB | 120GB   | 10G     | Worker        |
+| Worker-2     | 8   | 32GB | 120GB   | 10G     | Worker        |
+| Worker-3     | 8   | 32GB | 120GB   | 10G     | Worker        |
+| Worker-4     | 8   | 32GB | 120GB   | 10G     | Worker        |
+| Worker-5     | 8   | 32GB | 120GB   | 10G     | Worker        |
+| Worker-6     | 8   | 32GB | 120GB   | 10G     | Worker        |
+| GPU-Worker-1 | 8   | 32GB | 120GB   | 10G     | GPU Worker    |
+| GPU-Worker-2 | 8   | 32GB | 120GB   | 10G     | GPU Worker    |
 
 ## 💥 Reset
 
