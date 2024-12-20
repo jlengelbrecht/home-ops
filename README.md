@@ -6,9 +6,9 @@
   <img src="https://raw.githubusercontent.com/jlengelbrecht/home-ops/main/docs/src/assets/home-ops.png" width="144px" height="144px"/>
 </div>
 
-### <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.gif" alt="🚀" width="16" height="16"> My Home Operations Repository <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6a7/512.gif" alt="🚀" width="16" height="16">
+### <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.gif" alt="🚀" width="16" height="16"> My K8S Operations Repository <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.gif" alt="🚀" width="16" height="16">
 
-_... managed with Flux, Renovate, and GitHub Actions_ <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f916/512.gif" alt="🤖" width="16" height="16">
+_deployed on Talos... managed with Flux, Renovate, Deepsource, and GitHub Actions_ <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f916/512.gif" alt="🤖" width="16" height="16">
 
 </div>
 
@@ -20,6 +20,31 @@ _... managed with Flux, Renovate, and GitHub Actions_ <img src="https://fonts.gs
 [![Renovate](https://img.shields.io/github/actions/workflow/status/jlengelbrecht/home-ops/renovate.yaml?branch=main&label=&logo=renovatebot&style=for-the-badge&color=blue)](https://github.com/onedr0p/home-ops/actions/workflows/renovate.yaml)
 
 </div>
+
+## 🏗️ Infrastructure
+
+### Proxmox 🖥️
+
+| Server | CPU | RAM | Storage | Network | GPU |
+| --- | --- | --- | --- | --- | --- |
+| Dell R630 | 2x Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz | 190GB | 10TB | 2x 10G - 2 x 1G |
+| Dell R630 | 2x Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz | 190GB | 10TB | 2x 10G - 2 x 1G |
+| Dell R730XD | 2x Intel(R) Xeon(R) CPU E5-2699 v3 @ 2.30GHz | 125GB | 40TB | 2x 10G - 2 x 1G | Titan Xp |
+| Dell R730XD | 2x Intel(R) Xeon(R) CPU E5-2699 v3 @ 2.30GHz | 250GB  | 100TB | 2x 10G - 2 x 1G | RTX A2000 |
+
+| Cluster | CPU | RAM | Storage | Network | Type |
+| --- | --- | --- | --- | --- | --- |
+| Master-1 | 4 | 8GB | 120GB | 10G | Control Plane |
+| Master-2 | 4 | 8GB | 120GB | 10G | Control Plane |
+| Master-3 | 4 | 8GB | 120GB | 10G | Control Plane |
+| Worker-1 | 8 | 32GB | 120GB | 10G | Worker |
+| Worker-2 | 8 | 32GB | 120GB | 10G | Worker |
+| Worker-3 | 8 | 32GB | 120GB | 10G | Worker |
+| Worker-4 | 8 | 32GB | 120GB | 10G | Worker |
+| Worker-5 | 8 | 32GB | 120GB | 10G | Worker |
+| Worker-6 | 8 | 32GB | 120GB | 10G | Worker |
+| GPU-Worker-1 | 8 | 32GB | 120GB | 10G | GPU Worker |
+| GPU-Worker-2 | 8 | 32GB | 120GB | 10G | GPU Worker |
 
 ## 💥 Reset
 
@@ -112,46 +137,3 @@ Below is a general guide on trying to debug an issue with an resource or applica
    ```
 
 Resolving problems that you have could take some tweaking of your YAML manifests in order to get things working, other times it could be a external factor like permissions on NFS. If you are unable to figure out your problem see the help section below.
-
-## 👉 Help
-
-- Make a post in this repository's Github [Discussions](https://github.com/onedr0p/cluster-template/discussions).
-- Start a thread in the `#support` or `#cluster-template` channels in the [Home Operations](https://discord.gg/home-operations) Discord server.
-
-## ❔ What's next
-
-The cluster is your oyster (or something like that). Below are some optional considerations you might want to review.
-
-### Ship it
-
-To browse or get ideas on applications people are running, community member [@whazor](https://github.com/whazor) created [Kubesearch](https://kubesearch.dev) as a creative way to search Flux HelmReleases across Github and Gitlab.
-
-### DNS
-
-Instead of using [k8s_gateway](https://github.com/ori-edge/k8s_gateway) to provide DNS for your applications you might want to check out [external-dns](https://github.com/kubernetes-sigs/external-dns), it has wide support for many different providers such as [Pi-hole](https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/pihole.md), [UniFi](https://github.com/kashalls/external-dns-unifi-webhook), [Adguard Home](https://github.com/muhlba91/external-dns-provider-adguard), [Bind](https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/rfc2136.md) and more.
-
-### Storage
-
-The included CSI (openebs in local-hostpath mode) is a great start for storage but soon you might find you need more features like replicated block storage, or to connect to a NFS/SMB/iSCSI server. If you need any of those features be sure to check out the projects like [rook-ceph](https://github.com/rook/rook), [longhorn](https://github.com/longhorn/longhorn), [openebs](https://github.com/openebs/openebs), [democratic-csi](https://github.com/democratic-csi/democratic-csi), [csi-driver-nfs](https://github.com/kubernetes-csi/csi-driver-nfs),
-and [synology-csi](https://github.com/SynologyOpenSource/synology-csi).
-
-## 🙌 Related Projects
-
-If this repo is too hot to handle or too cold to hold check out these following projects.
-
-- [ajaykumar4/cluster-template](https://github.com/ajaykumar4/cluster-template) - _A template for deploying a Talos Kubernetes cluster including Argo for GitOps_
-- [khuedoan/homelab](https://github.com/khuedoan/homelab) - _Fully automated homelab from empty disk to running services with a single command._
-- [ricsanfre/pi-cluster](https://github.com/ricsanfre/pi-cluster) - _Pi Kubernetes Cluster. Homelab kubernetes cluster automated with Ansible and FluxCD_
-- [techno-tim/k3s-ansible](https://github.com/techno-tim/k3s-ansible) - _The easiest way to bootstrap a self-hosted High Availability Kubernetes cluster. A fully automated HA k3s etcd install with kube-vip, MetalLB, and more. Build. Destroy. Repeat._
-
-## ⭐ Stargazers
-
-<div align="center">
-
-[![Star History Chart](https://api.star-history.com/svg?repos=onedr0p/cluster-template&type=Date)](https://star-history.com/#onedr0p/cluster-template&Date)
-
-</div>
-
-## 🤝 Thanks
-
-Big shout out to all the contributors, sponsors and everyone else who has helped on this project.
