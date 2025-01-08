@@ -17,7 +17,7 @@ _deployed on Talos... managed with Flux, Renovate, Deepsource, and GitHub Action
 [![Discord](https://img.shields.io/discord/1123378591003066392?style=for-the-badge&label&logo=discord&logoColor=white&color=blue)](https://discord.gg/qzTUfjutJ9)&nbsp;&nbsp;
 [![Talos](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.devbu.io%2Ftalos_version&style=for-the-badge&logo=talos&logoColor=white&color=blue&label=%20)](https://talos.dev)&nbsp;&nbsp;
 [![Kubernetes](https://img.shields.io/endpoint?url=https%3A%2F%2Fkromgo.devbu.io%2Fkubernetes_version&style=for-the-badge&logo=kubernetes&logoColor=white&color=blue&label=%20)](https://kubernetes.io)&nbsp;&nbsp;
-[![Renovate](https://img.shields.io/github/actions/workflow/status/jlengelbrecht/home-ops/renovate.yaml?branch=main&label=&logo=renovatebot&style=for-the-badge&color=blue)](https://github.com/jlengelbrecht/home-ops/actions/workflows/renovate.yaml)
+[![Renovate](https://img.shields.io/github/actions/workflow/status/jlengelbrecht/home-ops/renovate.yaml?branch=main&label=&logo=renovatebot&style=for-the-badge&color=blue)](https://github.com/jlengelbrecht/prox-ops/actions/workflows/renovate.yaml)
 
 </div>
 
